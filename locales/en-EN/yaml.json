@@ -1,0 +1,9 @@
+{
+    "yaml" : {
+        "common": {
+            "label": {
+                "name": "yaml"
+            }
+        }
+    }
+}

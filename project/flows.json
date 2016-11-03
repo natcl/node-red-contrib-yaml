@@ -1,0 +1,177 @@
+[
+    {
+        "id": "1dfd2e25.cfe442",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "47be82.2c3a298",
+        "type": "yaml",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "103e1678.665702"
+            ]
+        ]
+    },
+    {
+        "id": "26539faf.17ced",
+        "type": "template",
+        "z": "1dfd2e25.cfe442",
+        "name": "yaml",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "invoice: 34843\ndate   : 2001-01-23\ntimestamp: {{payload}}\nbill-to: &id001\n    given  : Chris\n    family : Dumars\n    address:\n        lines: |\n            458 Walkman Dr.\n            Suite #292\n        city    : Royal Oak\n        state   : MI\n        postal  : 48046\nship-to: *id001\nproduct:\n    - sku         : BL394D\n      quantity    : 4\n      description : Basketball\n      price       : 450.00\n    - sku         : BL4438H\n      quantity    : 1\n      description : Super Hoop\n      price       : 2392.00\ntax  : 251.42\ntotal: 4443.52\ncomments: >\n    Late afternoon is best.\n    Backup contact is Nancy\n    Billsmer @ 338-4338.",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "47be82.2c3a298"
+            ]
+        ]
+    },
+    {
+        "id": "694a610c.548b88",
+        "type": "inject",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "26539faf.17ced"
+            ]
+        ]
+    },
+    {
+        "id": "103e1678.665702",
+        "type": "debug",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 630,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bea3f040.47697",
+        "type": "template",
+        "z": "1dfd2e25.cfe442",
+        "name": "json",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n    \"glossary\": {\n        \"timestamp\": {{payload}},\n        \"title\": \"example glossary\",\n\t\t\"GlossDiv\": {\n            \"title\": \"S\",\n\t\t\t\"GlossList\": {\n                \"GlossEntry\": {\n                    \"ID\": \"SGML\",\n\t\t\t\t\t\"SortAs\": \"SGML\",\n\t\t\t\t\t\"GlossTerm\": \"Standard Generalized Markup Language\",\n\t\t\t\t\t\"Acronym\": \"SGML\",\n\t\t\t\t\t\"Abbrev\": \"ISO 8879:1986\",\n\t\t\t\t\t\"GlossDef\": {\n                        \"para\": \"A meta-markup language, used to create markup languages such as DocBook.\",\n\t\t\t\t\t\t\"GlossSeeAlso\": [\"GML\", \"XML\"]\n                    },\n\t\t\t\t\t\"GlossSee\": \"markup\"\n                }\n            }\n        }\n    }\n}",
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "e1cdb687.2d29b8"
+            ]
+        ]
+    },
+    {
+        "id": "50fa2182.61f91",
+        "type": "inject",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "bea3f040.47697"
+            ]
+        ]
+    },
+    {
+        "id": "7279528d.f62f94",
+        "type": "yaml",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "x": 610,
+        "y": 260,
+        "wires": [
+            [
+                "6136a521.22dc9c"
+            ]
+        ]
+    },
+    {
+        "id": "6136a521.22dc9c",
+        "type": "debug",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 790,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b317a875.2b79e8",
+        "type": "debug",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 650,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e1cdb687.2d29b8",
+        "type": "json",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "7279528d.f62f94",
+                "b317a875.2b79e8"
+            ]
+        ]
+    },
+    {
+        "id": "7145cb87.298904",
+        "type": "comment",
+        "z": "1dfd2e25.cfe442",
+        "name": "Decoding",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9f1cf9ea.bf413",
+        "type": "comment",
+        "z": "1dfd2e25.cfe442",
+        "name": "Encoding",
+        "info": "",
+        "x": 120,
+        "y": 200,
+        "wires": []
+    }
+]
