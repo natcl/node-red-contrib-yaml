@@ -1,3 +1,3 @@
-# node-red-contrib-template
+# node-red-contrib-yaml
 
-A template you can fork to quickly start working on a Node-RED node.
+A Node-RED node to convert to/from YAML.  Works the same way as the built-in json node.
