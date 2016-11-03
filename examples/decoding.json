@@ -1,0 +1,74 @@
+[
+    {
+        "id": "47be82.2c3a298",
+        "type": "yaml",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "103e1678.665702"
+            ]
+        ]
+    },
+    {
+        "id": "26539faf.17ced",
+        "type": "template",
+        "z": "1dfd2e25.cfe442",
+        "name": "yaml",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "invoice: 34843\ndate   : 2001-01-23\ntimestamp: {{payload}}\nbill-to: &id001\n    given  : Chris\n    family : Dumars\n    address:\n        lines: |\n            458 Walkman Dr.\n            Suite #292\n        city    : Royal Oak\n        state   : MI\n        postal  : 48046\nship-to: *id001\nproduct:\n    - sku         : BL394D\n      quantity    : 4\n      description : Basketball\n      price       : 450.00\n    - sku         : BL4438H\n      quantity    : 1\n      description : Super Hoop\n      price       : 2392.00\ntax  : 251.42\ntotal: 4443.52\ncomments: >\n    Late afternoon is best.\n    Backup contact is Nancy\n    Billsmer @ 338-4338.",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "47be82.2c3a298"
+            ]
+        ]
+    },
+    {
+        "id": "694a610c.548b88",
+        "type": "inject",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "26539faf.17ced"
+            ]
+        ]
+    },
+    {
+        "id": "103e1678.665702",
+        "type": "debug",
+        "z": "1dfd2e25.cfe442",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "payload",
+        "x": 630,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7145cb87.298904",
+        "type": "comment",
+        "z": "1dfd2e25.cfe442",
+        "name": "Decoding",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    }
+]
